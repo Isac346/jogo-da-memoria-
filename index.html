@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Memória Matemática – 6º ano</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div>
+        <h1>Memória Matemática</h1>
+        <p class="sub">Ache um par de cartas e resolva o desafio do 6º ano.</p>
+      </div>
+      <div class="stats" aria-live="polite">
+        <div class="stat"><span id="score">0</span> pontos</div>
+        <div class="stat"><span id="pairs">0</span>/8 pares</div>
+        <div class="stat"><span id="moves">0</span> jogadas</div>
+        <button id="restart" class="btn ghost" type="button">Reiniciar</button>
+      </div>
+    </header>
+
+    <main>
+      <div id="board" class="board" aria-label="Tabuleiro do jogo da memória"></div>
+    </main>
+  </div>
+
+  <!-- Pergunta de matemática -->
+  <div id="overlay" class="overlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="qText">
+      <p id="qTopic" class="topic"></p>
+      <h2 id="qText"></h2>
+      <div id="options" class="options"></div>
+      <p id="feedback" class="feedback" aria-live="polite"></p>
+      <button id="next" class="btn" type="button" hidden>Continuar</button>
+    </div>
+  </div>
+
+  <!-- Fim de jogo -->
+  <div id="endOverlay" class="overlay" hidden>
+    <div class="modal end" role="dialog" aria-modal="true" aria-labelledby="endTitle">
+      <h2 id="endTitle">Você completou o tabuleiro!</h2>
+      <p id="endText"></p>
+      <button id="again" class="btn" type="button">Jogar de novo</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
