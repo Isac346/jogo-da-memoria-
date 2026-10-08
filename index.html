@@ -1,54 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Memória Matemática – 6º ano</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Memória Matemático - 6º Ano</title>
+    <!-- Fonte Infantil e Divertida -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app">
-    <header class="top">
-      <div>
-        <h1>Memória Matemática</h1>
-        <p class="sub">Ache um par de cartas e resolva o desafio do 6º ano.</p>
-      </div>
-      <div class="stats" aria-live="polite">
-        <div class="stat"><span id="score">0</span> pontos</div>
-        <div class="stat"><span id="pairs">0</span>/8 pares</div>
-        <div class="stat"><span id="moves">0</span> jogadas</div>
-        <button id="restart" class="btn ghost" type="button">Reiniciar</button>
-      </div>
+
+    <!-- CABEÇALHO -->
+    <header class="game-header">
+        <h1>🧠 Memória Matemática 6º Ano 📐</h1>
+        <p class="subtitle">Encontre os pares e resolva os desafios!</p>
     </header>
 
-    <main>
-      <div id="board" class="board" aria-label="Tabuleiro do jogo da memória"></div>
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="game-container">
+        
+        <!-- BARRA DE STATUS -->
+        <section class="status-bar" aria-label="Informações do Jogo">
+            <div class="status-card">
+                <span class="icon">⭐</span>
+                <div>
+                    <span class="label">Pontos</span>
+                    <span id="score" class="value">0</span>
+                </div>
+            </div>
+            
+            <div class="status-card">
+                <span class="icon">❤️</span>
+                <div>
+                    <span class="label">Vidas</span>
+                    <span id="lives" class="value">5</span>
+                </div>
+            </div>
+
+            <div class="status-card">
+                <span class="icon">🏆</span>
+                <div>
+                    <span class="label">Recorde</span>
+                    <span id="high-score" class="value">0</span>
+                </div>
+            </div>
+
+            <button id="restart-btn" class="btn btn-action">🔄 Reiniciar</button>
+        </section>
+
+        <!-- TABULEIRO DE CARTAS -->
+        <section id="game-board" class="board-grid" aria-label="Tabuleiro de Cartas">
+            <!-- As cartas serão geradas dinamicamente via JavaScript -->
+        </section>
+
     </main>
-  </div>
 
-  <!-- Pergunta de matemática -->
-  <div id="overlay" class="overlay" hidden>
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="qText">
-      <p id="qTopic" class="topic"></p>
-      <h2 id="qText"></h2>
-      <div id="options" class="options"></div>
-      <p id="feedback" class="feedback" aria-live="polite"></p>
-      <button id="next" class="btn" type="button" hidden>Continuar</button>
+    <!-- RODAPÉ -->
+    <footer class="game-footer">
+        <p>Desenvolvido para praticar a Matemática do 6º Ano de forma divertida! ✨</p>
+    </footer>
+
+    <!-- MODAL DE PERGUNTA MATEMÁTICA -->
+    <div id="question-modal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <div class="modal-header">
+                <span class="badge">Desafio do 6º Ano!</span>
+                <h2 id="modal-title">Desafio Matemático</h2>
+            </div>
+            
+            <p id="question-text" class="question-text">Qual é o resultado?</p>
+
+            <div id="options-container" class="options-grid">
+                <!-- Botões de alternativa via JS -->
+            </div>
+
+            <div id="feedback-msg" class="feedback-message hidden"></div>
+        </div>
     </div>
-  </div>
 
-  <!-- Fim de jogo -->
-  <div id="endOverlay" class="overlay" hidden>
-    <div class="modal end" role="dialog" aria-modal="true" aria-labelledby="endTitle">
-      <h2 id="endTitle">Você completou o tabuleiro!</h2>
-      <p id="endText"></p>
-      <button id="again" class="btn" type="button">Jogar de novo</button>
+    <!-- TELA DE FINALIZAÇÃO (VITÓRIA/DERROTA) -->
+    <div id="game-over-modal" class="modal-overlay hidden">
+        <div class="modal-card game-over-card">
+            <span id="game-over-icon" class="game-over-icon">🎉</span>
+            <h2 id="game-over-title">Parabéns!</h2>
+            <p id="game-over-text">Você completou todos os desafios!</p>
+            <div class="final-stats">
+                <p>Pontuação Final: <strong id="final-score">0</strong></p>
+            </div>
+            <button id="play-again-btn" class="btn btn-primary btn-large">🎮 Jogar Novamente</button>
+        </div>
     </div>
-  </div>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
